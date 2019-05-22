@@ -57,11 +57,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="d-flex">
-                        <div class="mx-auto">
-                            {{ $companies->links() }}
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

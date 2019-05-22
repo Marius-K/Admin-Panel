@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Employees</div>
 
@@ -59,11 +59,6 @@
                                 @endforelse
                             </tbody>
                         </table>
-                    </div>
-                    <div class="d-flex">
-                        <div class="mx-auto">
-                            {{ $employees->links() }}
-                        </div>
                     </div>
                 </div>
             </div>
