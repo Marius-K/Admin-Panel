@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
+@section('pageTitle', trans('main.employees.title'))
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Employees</div>
+                <div class="card-header">{{ trans('main.employees.title') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -15,7 +17,7 @@
                     @endif
                     <p>
                         <a href="{{ route('employees.create') }}">
-                            <button type="button" class="btn btn-success">Add an employee</button>
+                            <button type="button" class="btn btn-success">{{ trans('main.employees.add') }}</button>
                         </a>
                     </p>
 
@@ -23,12 +25,12 @@
                         <table class="table table-striped table-sm" id="dataTable">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="text-center">First name</th>
-                                    <th scope="col" class="text-center">Last name</th>
-                                    <th scope="col" class="text-center">Company</th>
-                                    <th scope="col" class="text-center">Email</th>
-                                    <th scope="col" class="text-center">Phone number</th>
-                                    <th scope="col" class="text-center" style="width: 15%">Action</th>
+                                    <th scope="col" class="text-center">{{ trans('main.employees.fields.firstname') }}</th>
+                                    <th scope="col" class="text-center">{{ trans('main.employees.fields.lastname') }}</th>
+                                    <th scope="col" class="text-center">{{ trans('main.employees.fields.company') }}</th>
+                                    <th scope="col" class="text-center">{{ trans('main.employees.fields.email') }}</th>
+                                    <th scope="col" class="text-center">{{ trans('main.employees.fields.phone') }}</th>
+                                    <th scope="col" class="text-center" style="width: 15%">{{ trans('main.employees.fields.action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,20 +43,20 @@
                                         <td>{{ $employee->phonenumber }}</td>
                                         <td class="text-center">
                                             <a href="{{ url('/employees/'.$employee->id.'/edit') }}">
-                                                <button type="button" class="btn btn-primary btn-sm mb-1">Edit</button>
+                                                <button type="button" class="btn btn-primary btn-sm mb-1">{{ trans('main.buttons.edit') }}</button>
                                             </a>
 
                                             <form action="{{ url('/employees/'.$employee->id) }}" method="POST">
                                                 @method("DELETE")
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm">{{ trans('main.buttons.delete') }}</button>
                                             </form>
                                         </td>
                                     </tr>
                                     
                                 @empty
                                     <tr>
-                                        <td colspan="6"><p class="text-center">There are no employees.</p></td>
+                                        <td colspan="6"><p class="text-center">{{ trans('main.employees.empty') }}</p></td>
                                     </tr>
                                 @endforelse
                             </tbody>

@@ -7,14 +7,18 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Administration Panel') }}</title>
+    <title>@yield('pageTitle') - {{ config('app.name', 'Administration Panel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script>
-    $(document).ready( function () {
-        $('#dataTable').DataTable();
+    $(document).ready(function() {
+        $('#dataTable').dataTable( {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/{{ trans('main.dtlang') }}.json"
+            }
+        } );
     } );
     </script>
 
@@ -42,10 +46,10 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('companies.index') }}">{{ __('Companies') }}</a>
+                                <a class="nav-link" href="{{ route('companies.index') }}">{{ trans('main.companies.title') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('employees.index') }}">{{ __('Employees') }}</a>
+                                <a class="nav-link" href="{{ route('employees.index') }}">{{ trans('main.employees.title') }}</a>
                             </li>
                         @endauth
                     </ul>
@@ -81,6 +85,20 @@
                                 </div>
                             </li>
                         @endguest
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ trans('main.language') }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ url('lang/en') }}">
+                                    English
+                                </a>
+                                <a class="dropdown-item" href="{{ url('lang/lt') }}">
+                                    Lietuvių
+                                </a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

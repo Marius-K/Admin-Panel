@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('lang/{locale}', 'LocalizationController@index');
 
 Auth::routes(['register' => false]);
 
