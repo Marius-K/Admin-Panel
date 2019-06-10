@@ -18,6 +18,11 @@ return [
             'email' => 'El. paštas',
             'phone' => 'Tel. numeris',
             'action' => 'Veiksmai',
+        ],
+        'status' => [
+            'store' => 'Darbuotojas sėkmingai sukurtas',
+            'update' => 'Darbuotojo informacija sėkmingai pataisyta',
+            'destroy' => 'Darbuotojas sėkmingai pašalintas'
         ]
     ],
     'companies' => [
@@ -32,6 +37,11 @@ return [
             'action' => 'Veiksmai',
             'choose' => 'Pasirinkite logotipą'
         ],
+        'status' => [
+            'store' => 'Įmonė sėkmingai sukurta',
+            'update' => 'Įmonės informacija sėkmingai pataisyta',
+            'destroy' => 'Įmonė sėkmingai pašalinta'
+        ]
 
     ],
     'buttons' => [

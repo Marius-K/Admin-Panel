@@ -18,6 +18,11 @@ return [
             'email' => 'E-mail address',
             'phone' => 'Phone number',
             'action' => 'Action',
+        ],
+        'status' => [
+            'store' => 'An employee has been successfully created',
+            'update' => 'An employee has been successfully edited',
+            'destroy' => 'An employee has been successfully deleted'
         ]
     ],
     'companies' => [
@@ -32,6 +37,11 @@ return [
             'action' => 'Action',
             'choose' => 'Choose a logo'
         ],
+        'status' => [
+            'store' => 'Company has been successfully created',
+            'update' => 'Company has been successfully updated',
+            'destroy' => 'Company has been successfully deleted'
+        ]
 
     ],
     'buttons' => [

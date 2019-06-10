@@ -52,7 +52,7 @@ class CompanyController extends Controller
         $company->website = $request->website;
         $company->save();
 
-        return redirect()->route('companies.index')->with('status', 'Company has been successfully created');
+        return redirect()->route('companies.index')->with('status', trans('main.companies.status.store'));
     }
 
     /**
@@ -101,7 +101,7 @@ class CompanyController extends Controller
         $company->website = $request->website;
         $company->save();
 
-        return redirect()->route('companies.index')->with('status', 'Company has been successfully updated');
+        return redirect()->route('companies.index')->with('status', trans('main.companies.status.update'));
     }
 
     /**
@@ -114,6 +114,6 @@ class CompanyController extends Controller
     {
         $company->delete();
 
-        return redirect()->route('companies.index')->with('status', 'Company has been successfully deleted');
+        return redirect()->route('companies.index')->with('status', trans('main.companies.status.destroy'));
     }
 }

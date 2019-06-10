@@ -50,18 +50,7 @@ class EmployeeController extends Controller
         $employee->phonenumber = $request->phonenumber;
         $employee->save();
 
-        return redirect()->route('employees.index')->with('status', 'An employee has been successfully created');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Employee  $employee
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Employee $employee)
-    {
-        //
+        return redirect()->route('employees.index')->with('status', trans('main.employees.status.store'));
     }
 
     /**
@@ -97,7 +86,7 @@ class EmployeeController extends Controller
         $employee->phonenumber = $request->phonenumber;
         $employee->save();
 
-        return redirect()->route('employees.index')->with('status', 'An employee has been successfully edited');
+        return redirect()->route('employees.index')->with('status', trans('main.employees.status.update'));
     }
 
     /**
@@ -110,6 +99,6 @@ class EmployeeController extends Controller
     {
         $employee->delete();
 
-        return redirect()->route('employees.index')->with('status', 'An employee has been successfully deleted');
+        return redirect()->route('employees.index')->with('status', trans('main.employees.status.destroy'));
     }
 }
