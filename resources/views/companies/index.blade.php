@@ -5,20 +5,14 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">{{ trans('main.companies.title') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <alert ref="alert"></alert>
                     <p>
-                        <a href="{{ route('companies.create') }}">
-                            <button type="button" class="btn btn-success">{{ trans('main.companies.add') }}</button>
-                        </a>
+                        <button type="button" class="btn btn-success" @click="$refs.modal.showCreateModal()">{{ trans('main.companies.add') }}</button>
                     </p>
                     <div class="table-responsive">
                         <table class="table table-striped table-sm" id="dataTable">
@@ -34,14 +28,12 @@
                             <tbody>
                                 @forelse ($companies as $company)
                                     <tr>
-                                        <td><img src="{{ $company->logo }}" class="img-thumbnail"></td>
-                                        <td>{{ $company->name }}</td>
-                                        <td>{{ $company->email }}</td>
-                                        <td><a href="{{ $company->website }}">{{ $company->website }}</a></td>
-                                        <td class="text-center">
-                                            <a href="{{ url('/companies/'.$company->id.'/edit') }}">
-                                                <button type="button" class="btn btn-primary btn-sm mb-1">{{ trans('main.buttons.edit') }}</button>
-                                            </a>
+                                        <td class="align-middle"><img src="{{ $company->logo }}" class="img-thumbnail"></td>
+                                        <td class="align-middle">{{ $company->name }}</td>
+                                        <td class="align-middle">{{ $company->email }}</td>
+                                        <td class="align-middle"><a href="{{ $company->website }}">{{ $company->website }}</a></td>
+                                        <td class="text-center align-middle">
+                                            <button type="button" class="btn btn-primary btn-sm mb-1" @click="$refs.modal.showEditModal({{ $company->id }})">{{ trans('main.buttons.edit') }}</button>
 
                                             <form action="{{ url('/companies/'.$company->id) }}" method="POST">
                                                 @method("DELETE")
@@ -64,4 +56,5 @@
         </div>
     </div>
 </div>
+<company-modal ref="modal" csrf="{{ csrf_token() }}"></company-modal>
 @endsection
