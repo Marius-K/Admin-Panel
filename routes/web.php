@@ -19,5 +19,9 @@ Auth::routes(['register' => false]);
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('companies', 'CompanyController');
     Route::resource('employees', 'EmployeeController');
-    
+    Route::group(['prefix' => 'modal'], function () {
+        Route::get('translate/{txt}', 'ModalController@translate');
+        Route::get('companies', 'ModalController@companies');
+        Route::get('employees', 'ModalController@employees');
+    });
 });

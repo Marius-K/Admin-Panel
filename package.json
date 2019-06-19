@@ -12,6 +12,7 @@
     "devDependencies": {
         "axios": "^0.18.1",
         "bootstrap": "^4.1.0",
+        "bootstrap-vue": "^2.0.0-rc.22",
         "cross-env": "^5.1",
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
@@ -21,9 +22,8 @@
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
+        "vue-bootstrap4-table": "^1.1.9",
         "vue-template-compiler": "^2.6.10"
     },
-    "dependencies": {
-        "datatables.net-dt": "^1.10.19"
-    }
+    "dependencies": {}
 }

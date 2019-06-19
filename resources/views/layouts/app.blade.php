@@ -10,16 +10,7 @@
     <title>@yield('pageTitle') - {{ config('app.name', 'Administration Panel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script>
-    $(document).ready(function() {
-        $('#dataTable').dataTable( {
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/{{ trans('main.dtlang') }}.json"
-            }
-        } );
-    } );
-    </script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

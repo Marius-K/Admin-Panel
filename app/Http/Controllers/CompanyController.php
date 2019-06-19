@@ -40,7 +40,7 @@ class CompanyController extends Controller
             'name' => 'required',
             'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|dimensions:min_width=100,min_height=100'
         ]);
-
+        
         $company = new Company;
         if($request->hasFile('logo'))
         {
@@ -52,7 +52,12 @@ class CompanyController extends Controller
         $company->website = $request->website;
         $company->save();
 
-        return redirect()->route('companies.index')->with('status', trans('main.companies.status.store'));
+        $response = [
+            'data' => $company,
+            'status' => trans('main.companies.status.store')
+        ];
+
+        return response()->json($response, 201);
     }
 
     /**
@@ -63,7 +68,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        return response()->json($company, 200);
     }
 
     /**
@@ -100,8 +105,13 @@ class CompanyController extends Controller
         $company->email = $request->email;
         $company->website = $request->website;
         $company->save();
+        
+        $response = [
+            'data' => $company,
+            'status' => trans('main.companies.status.update')
+        ];
 
-        return redirect()->route('companies.index')->with('status', trans('main.companies.status.update'));
+        return response()->json($response, 201);
     }
 
     /**
@@ -114,6 +124,6 @@ class CompanyController extends Controller
     {
         $company->delete();
 
-        return redirect()->route('companies.index')->with('status', trans('main.companies.status.destroy'));
+        return response(trans('main.companies.status.destroy'), 201);
     }
 }

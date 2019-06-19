@@ -35,7 +35,8 @@ return [
             'email' => 'Email',
             'website' => 'Website',
             'action' => 'Action',
-            'choose' => 'Choose a logo'
+            'choose' => 'Choose a logo',
+            'drop' => 'Drop file here...'
         ],
         'status' => [
             'store' => 'Company has been successfully created',
@@ -48,6 +49,8 @@ return [
         'submit' => 'Submit',
         'edit' => 'Edit',
         'delete' => 'Delete',
+        'browse' => 'Browse',
+        'cancel' => 'Cancel'
     ],
 
 ];
