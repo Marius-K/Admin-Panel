@@ -36,12 +36,12 @@
                             <tbody>
                                 @forelse ($employees as $employee)
                                     <tr>
-                                        <td class="align-middle">{{ $employee->firstname }}</td>
-                                        <td class="align-middle">{{ $employee->lastname }}</td>
-                                        <td class="align-middle">{{ $employee->company->name }}</td>
-                                        <td class="align-middle">{{ $employee->email }}</td>
-                                        <td class="align-middle">{{ $employee->phonenumber }}</td>
-                                        <td class="text-center align-middle">
+                                        <td>{{ $employee->firstname }}</td>
+                                        <td>{{ $employee->lastname }}</td>
+                                        <td>{{ $employee->company->name }}</td>
+                                        <td>{{ $employee->email }}</td>
+                                        <td>{{ $employee->phonenumber }}</td>
+                                        <td class="text-center">
                                             <a href="{{ url('/employees/'.$employee->id.'/edit') }}">
                                                 <button type="button" class="btn btn-primary btn-sm mb-1">{{ trans('main.buttons.edit') }}</button>
                                             </a>
