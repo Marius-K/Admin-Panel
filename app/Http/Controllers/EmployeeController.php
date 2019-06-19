@@ -50,7 +50,23 @@ class EmployeeController extends Controller
         $employee->phonenumber = $request->phonenumber;
         $employee->save();
 
-        return redirect()->route('employees.index')->with('status', trans('main.employees.status.store'));
+        $response = [
+            'data' => $employee,
+            'status' => trans('main.employees.status.store')
+        ];
+
+        return response()->json($response, 201);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Employee  $employee
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Employee $employee)
+    {
+        return response()->json($employee, 200);
     }
 
     /**
@@ -86,7 +102,12 @@ class EmployeeController extends Controller
         $employee->phonenumber = $request->phonenumber;
         $employee->save();
 
-        return redirect()->route('employees.index')->with('status', trans('main.employees.status.update'));
+        $response = [
+            'data' => $employee,
+            'status' => trans('main.employees.status.update')
+        ];
+
+        return response()->json($response, 201);
     }
 
     /**
@@ -99,6 +120,6 @@ class EmployeeController extends Controller
     {
         $employee->delete();
 
-        return redirect()->route('employees.index')->with('status', trans('main.employees.status.destroy'));
+        return response(trans('main.employees.status.destroy'), 201);
     }
 }

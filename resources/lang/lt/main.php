@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'dtlang' => 'Lithuanian',
     'language' => 'Kalba',
     'dashboard' => [
         'title' => 'Valdymo panelė',
@@ -35,7 +34,8 @@ return [
             'email' => 'El. paštas',
             'website' => 'Tinklalapis',
             'action' => 'Veiksmai',
-            'choose' => 'Pasirinkite logotipą'
+            'choose' => 'Pasirinkite logotipą',
+            'drop' => 'Vilkite failą čia...'
         ],
         'status' => [
             'store' => 'Įmonė sėkmingai sukurta',
@@ -48,6 +48,8 @@ return [
         'submit' => 'Pateikti',
         'edit' => 'Taisyti',
         'delete' => 'Ištrinti',
+        'browse' => 'Naršyti',
+        'cancel' => 'Atšaukti'
     ],
 
 ];

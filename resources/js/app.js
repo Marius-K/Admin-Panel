@@ -5,8 +5,11 @@
  */
 
 require('./bootstrap');
-require('datatables.net-dt')();
 window.Vue = require('vue');
+
+import BootstrapVue from 'bootstrap-vue'
+
+Vue.use(BootstrapVue)
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,7 +22,9 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('company', require('./components/CompanyComponent.vue').default);
+Vue.component('employee', require('./components/EmployeeComponent.vue').default);
+Vue.component('alert', require('./components/AlertComponent.vue').default);
 
 
 /**
@@ -30,4 +35,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    methods: {
+      log: function (e) {
+        console.log(e);
+      }
+    }
 });
