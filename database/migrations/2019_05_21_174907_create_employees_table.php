@@ -19,7 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('lastname')->nullable();
             $table->string('email')->nullable();
             $table->string('phonenumber')->nullable();
-            $table->integer('company_id')->unsigned()->nullable();
+            $table->bigInteger('company_id')->unsigned()->nullable();
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }

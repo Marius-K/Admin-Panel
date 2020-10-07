@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => bcrypt('password'),
         ]);
-        factory(App\Company::class, 25)->create()->each(function ($company) {
-            $company->employees()->save(factory(App\Employee::class)->make());
+        \App\Company::factory()->count(25)->create()->each(function ($company) {
+            $company->employees()->save(\App\Employee::factory()->make());
         });
     }
 }
